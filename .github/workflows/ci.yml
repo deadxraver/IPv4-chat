@@ -9,6 +9,7 @@ env:
 jobs:
   build-test:
     runs-on: debian-latest
+    container: debian:latest
     steps:
       - uses: actions/checkout@v4
       - name: "Install dependencies"
@@ -18,4 +19,4 @@ jobs:
       - name: "Build"
         run: make build
       - name: "Test"
-        run: make test
+        run: make run-tests
