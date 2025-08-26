@@ -2,6 +2,8 @@
 
 #define MESSENGER_MESSENGER_H
 
+#define MAX_MESSAGE_SIZE 1000
+
 #include <string>
 #include <iostream>
 

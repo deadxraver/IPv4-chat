@@ -15,5 +15,9 @@ void init_client(std::string ip, int port, std::string nickname, bool* finished)
       *finished = true;
       return;
     }
+    if (msg.size() > MAX_MESSAGE_SIZE) {
+      std::cerr << "Failed to send message, message should not exceed 1000 bytes\n";
+      continue ;
+    }
   }
 }
