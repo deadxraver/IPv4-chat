@@ -12,7 +12,7 @@ CC=g++
 all: build run-tests
 	@echo test
 
-build: $(SRC)
+build: $(SRC)/**
 	test -e $(BUILD) || mkdir $(BUILD)
 	$(CC) $(SRC)/main.cpp $(SRC)/**/*.cpp -o $(BUILD)/$(APP_NAME)
 	# TODO

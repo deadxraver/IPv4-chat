@@ -3,6 +3,14 @@
 #define UTIL_ARGPARSER_H
 
 #include <string>
+#include <iostream>
+
+enum ParseError {
+  NO_ERROR = 0,
+  UNKNOWN_ARGUEMENT,
+  NO_PORT,
+  NO_IP,
+};
 
 struct ParseResults {
   bool help_message_only;
