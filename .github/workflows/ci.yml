@@ -15,7 +15,7 @@ jobs:
       - name: "Install dependencies"
         run: |
           apt update
-          apt install build-essential make -y
+          apt install time build-essential make -y
       - name: "Build"
         run: make build
       - name: "Test"
