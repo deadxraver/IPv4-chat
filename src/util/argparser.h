@@ -10,12 +10,14 @@ enum ParseError {
   UNKNOWN_ARGUEMENT,
   NO_PORT,
   NO_IP,
+  WRONG_PORT_FORMAT,
 };
 
 struct ParseResults {
   bool help_message_only;
   std::string ip;
   int port;
+  enum ParseError parse_error;
 };
 
 
