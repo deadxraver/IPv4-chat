@@ -15,7 +15,7 @@ jobs:
       - name: "Install dependencies"
         run: |
           apt update
-          apt install gcc -y
+          apt install gcc make -y
       - name: "Build"
         run: make build
       - name: "Test"
