@@ -4,6 +4,7 @@
 
 #include <string>
 #include <iostream>
+#include <cstring>
 
 enum ParseError {
   NO_ERROR = 0,

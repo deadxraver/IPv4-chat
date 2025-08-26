@@ -39,22 +39,24 @@ static int parse_port(char* str_port) {
 struct ParseResults parse_args(int argc, char* argv[]) {
   struct ParseResults parse_results = { 0 };
   if (argc < 2) {
-    parse_args.parse_error = NO_IP;
+    parse_results.parse_error = NO_IP;
     goto end;
   }
   if (!strcmp(argv[1], "--help")) {
-    parse_args.help_message_only = true;
+    parse_results.help_message_only = true;
+    parse_results.parse_error = NO_ERROR;
+    print_help_message(argv[0]);
     goto end;
   }
   if (argc < 3) {
-    parse_args.parse_error = NO_PORT;
+    parse_results.parse_error = NO_PORT;
     goto end;
   }
   if (argc > 3 || argv[1][0] == '-' || argv[2][0] == '-') {
-    parse_args.parse_error = UNKNOWN_ARGUEMENT;
+    parse_results.parse_error = UNKNOWN_ARGUEMENT;
     goto end;
   }
-  parse_results.ip = new std::string(argv[1]);
+  parse_results.ip = argv[1];
   parse_results.port = parse_port(argv[2]);
   if (parse_results.port < 0) {
     parse_results.parse_error = WRONG_PORT_FORMAT;
