@@ -22,5 +22,5 @@ struct ParseResults {
 };
 
 
-struct ParseResults parse_args(int argc, char* argv[]);
+struct ParseResults parse_args(int argc, char* argv[], bool silent);
 #endif // !UTIL_ARGPARSER_H

@@ -36,7 +36,7 @@ static int parse_port(char* str_port) {
   return port;
 }
 
-struct ParseResults parse_args(int argc, char* argv[]) {
+struct ParseResults parse_args(int argc, char* argv[], bool silent) {
   struct ParseResults parse_results = { 0 };
   if (argc < 2) {
     parse_results.parse_error = NO_IP;
@@ -45,7 +45,7 @@ struct ParseResults parse_args(int argc, char* argv[]) {
   if (!strcmp(argv[1], "--help")) {
     parse_results.help_message_only = true;
     parse_results.parse_error = NO_ERROR;
-    print_help_message(argv[0]);
+    if (!silent) print_help_message(argv[0]);
     goto end;
   }
   if (argc < 3) {
@@ -63,6 +63,6 @@ struct ParseResults parse_args(int argc, char* argv[]) {
     goto end;
   }
 end:
-  print_err_message(parse_results.parse_error);
+  if (!silent) print_err_message(parse_results.parse_error);
   return parse_results;
 }

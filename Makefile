@@ -6,22 +6,23 @@ TEST=$(HOME)/test
 BUILD=$(HOME)/build
 
 APP_NAME=messenger
+TEST_NAME=test
 
 CC=g++
 
 all: build run-tests
-	@echo test
+	@echo -e '\nSuccess! Executable can be found at' $(BUILD)/$(APP_NAME)
 
 build: $(SRC)/**
 	test -e $(BUILD) || mkdir $(BUILD)
 	$(CC) $(SRC)/main.cpp $(SRC)/**/*.cpp -o $(BUILD)/$(APP_NAME)
-	# TODO
 
 build-tests: $(TEST)
-	# TODO
+	$(CC) $(TEST)/main.cpp $(SRC)/**/*.cpp -o $(BUILD)/$(TEST_NAME)
 
 run-tests: build-tests
-	# TODO
+	echo
+	time $(BUILD)/$(TEST_NAME)
 
 clean:
 	rm -rf $(BUILD)
