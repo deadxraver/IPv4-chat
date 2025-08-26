@@ -7,8 +7,11 @@
 #include <string>
 #include <iostream>
 
+
+void set_user_params(std::string ip, int port, std::string nickname);
+
 void init_server();
 
-void init_client(std::string ip, int port, std::string nickname, bool* finished);
+void init_client(bool* finished);
 
 #endif // !MESSENGER_MESSENGER_H

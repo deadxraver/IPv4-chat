@@ -14,8 +14,11 @@ int main(int argc, char* argv[]) {
   std::string nickname;
   std::cout << "Please enter your nickname: ";
   std::cin >> nickname;
+
   bool finished = false;
-  std::thread client_thread(init_client, parse_results.ip, parse_results.port, nickname, &finished);
+  set_user_params(parse_results.ip, parse_results.port, nickname);
+
+  std::thread client_thread(init_client, &finished);
   std::thread server_thread(init_server);
   client_thread.detach();
   server_thread.detach();
