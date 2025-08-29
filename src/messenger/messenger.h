@@ -3,9 +3,13 @@
 #define MESSENGER_MESSENGER_H
 
 #define MAX_MESSAGE_SIZE 1000
+#define DESTINATION_IP "255.255.255.255"
+#define MAX_QUEUE 16
 
 #include <string>
 #include <iostream>
+#include <sys/socket.h>
+#include <netinet/in.h>
 
 
 void set_user_params(std::string ip, int port, std::string nickname);
