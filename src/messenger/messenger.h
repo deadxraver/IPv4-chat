@@ -10,7 +10,15 @@
 #include <iostream>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <cstring>
 
+struct Message {
+  std::string content;
+  std::string ip;
+  std::string nickname;
+};
 
 void set_user_params(std::string ip, int port, std::string nickname);
 
